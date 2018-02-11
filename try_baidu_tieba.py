@@ -15,7 +15,7 @@ def get_html(url):
         r = requests.get(url, timeout=30)
         r.raise_for_status()
         # 这里我们知道百度贴吧的编码是utf-8，所以手动设置的。爬去其他的页面时建议使用：
-        # r.endcodding = r.apparent_endconding
+        #r.endcodding = r.apparent_endconding -> 似乎有问题
         r.encoding = 'utf-8'
         # print(r.text)
         return r.text
@@ -102,7 +102,7 @@ def main(base_url, deep):
 
 base_url = 'http://tieba.baidu.com/f?kw=%E7%94%9F%E6%B4%BB%E5%A4%A7%E7%88%86%E7%82%B8&ie=utf-8'
 
-deep = 3
+deep = 1
 
 if __name__ == '__main__':
     main(base_url, deep)
